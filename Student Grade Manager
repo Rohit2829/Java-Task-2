@@ -1,1 +1,46 @@
+package first;
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class StudentGradeManager {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Double> grades = new ArrayList<>();
+        while (true) {
+            System.out.println("Enter a grade (or -1 to finish): ");
+            double grade = scanner.nextDouble();
+            if (grade == -1) {
+                break;
+            }
+            grades.add(grade);
+        }
+        double sum = 0;
+        for (double grade : grades) {
+            sum += grade;
+        }
+        double averageGrade = sum / grades.size();
+        String letterGrade = "";
+        double gpa = 0;
+
+        if (averageGrade >= 90) {
+            letterGrade = "A";
+            gpa = 4.0;
+        } else if (averageGrade >= 80) {
+            letterGrade = "B";
+            gpa = 3.0;
+        } else if (averageGrade >= 70) {
+            letterGrade = "C";
+            gpa = 2.0;
+        } else if (averageGrade >= 60) {
+            letterGrade = "D";
+            gpa = 1.0;
+        } else {
+            letterGrade = "F";
+            gpa = 0.0;
+        }
+        System.out.printf("Average Grade: %.2f\n", averageGrade);
+        System.out.println("Letter Grade: " + letterGrade);
+        System.out.printf("GPA: %.2f\n", gpa);
+    }
+}
 
